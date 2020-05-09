@@ -118,7 +118,7 @@ ChatBotPanelDialog::ChatBotPanelDialog(wxWindow *parent, wxWindowID id)
     ////
 
     // create chat logic instance
-    _chatLogic = new ChatLogic(); 
+    SetChatLogicHandle(std::make_unique<ChatLogic>());// move a new memory chunck ; 
 
     // pass pointer to chatbot dialog so answers can be displayed in GUI
     _chatLogic->SetPanelDialogHandle(this);
@@ -135,7 +135,7 @@ ChatBotPanelDialog::~ChatBotPanelDialog()
     //// STUDENT CODE
     ////
 
-    delete _chatLogic;
+  //  delete _chatLogic; as now smart pointers handle the memory 
 
     ////
     //// EOF STUDENT CODE
